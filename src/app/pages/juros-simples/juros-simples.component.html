@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="titulo">
+    <h4>Calcular juros simples</h4>
+    <p>Calcule quanto o seu dinheiro irá render no juros simples.</p>
+  </div>
+
+  <label class="form-label">Investimento inicial</label>
+  <div class="input-group">
+    <span class="input-group-text">R$</span>
+    <input
+      type="number"
+      class="form-control"
+      aria-label="Investimento inicial"
+      [(ngModel)]="juros.investimentoInicial"
+    />
+  </div>
+
+  <label class="form-label">Data início</label>
+  <input type="date" class="form-control" [(ngModel)]="juros.dataInicio" />
+
+  <label class="form-label">Data final</label>
+  <input type="date" class="form-control" [(ngModel)]="juros.dataFim" />
+
+  <label class="form-label">Rendimento (%)</label>
+  <div class="input-group">
+    <span class="input-group-text">%</span>
+    <input
+      type="text"
+      class="form-control"
+      aria-label="Rendimento"
+      [(ngModel)]="juros.porcentagem"
+    />
+  </div>
+
+  <div class="d-grid gap-2 d-md-block">
+    <button
+      class="btn btn-primary botao-calcular"
+      type="button"
+      (click)="calcular()"
+    >
+      Calcular
+    </button>
+  </div>
+
+  <app-resultado-investimento
+    *ngIf="mostrarResultado"
+  ></app-resultado-investimento>
+</div>
